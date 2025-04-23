@@ -8,7 +8,7 @@ function getElementsByTagName1(node, tagName, arr = []) {
       return arr;
     }
 
-    if (node.tagName ) {
+    if (node.tagName && node.tagName.toLowerCase() === tagName.toLowerCase()) {
       arr.push(node);
     }
   
