@@ -1,5 +1,5 @@
 
-type SplitString<T,U>=T extends `${infer A}U${infer B}`?[A]SplitString<B,U>:T;
+type SplitString<T,U extends string,Z extends any[]=[]>=T extends `${infer A}${U }${infer B}`?SplitString<B,U,[...Z,A]>:[...Z,T];
 
 type S1 = SplitString<"a,b,c", ",">;        // Expected: ["a", "b", "c"]
 type S2 = SplitString<"foo-bar-baz", "-">;  // Expected: ["foo", "bar", "baz"]
