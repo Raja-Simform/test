@@ -25,8 +25,8 @@
 // console.log(getContentInfo(audio)); // Should output: "Audio: 3 minutes by Artist Name" or "Audio: 3 minutes by Unknown Artist" if no artist
 
 
-// type SplitString<T,U>=T extends `${infer A}U${infer B}`?[A]SplitString<B,U>:T;
+type SplitString<T,U>=T extends `${infer A}U${infer B}`?[A]SplitString<B,U>:T;
 
-// type S1 = SplitString<"a,b,c", ",">;        // Expected: ["a", "b", "c"]
-// type S2 = SplitString<"foo-bar-baz", "-">;  // Expected: ["foo", "bar", "baz"]
-// type S3 = SplitString<"hello", ",">;        // Expected: ["hello"]
+type S1 = SplitString<"a,b,c", ",">;        // Expected: ["a", "b", "c"]
+type S2 = SplitString<"foo-bar-baz", "-">;  // Expected: ["foo", "bar", "baz"]
+type S3 = SplitString<"hello", ",">;        // Expected: ["hello"]

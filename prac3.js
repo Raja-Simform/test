@@ -1,16 +1,23 @@
 
 
-function getElementsByTagName1(node,tagname,arr=[]){
-    if(node.children===null || typeof(node.children)!=="object"){
-        return;
-    }
-    else if(node.children==='a'){
-        arr.push(node.chiren);
-        return;
-    }
-    else{
-       getElementsByTagName1(node.children,tagname);
+
+// getElementsByTagName(document.body, 'a'); 
+
+function getElementsByTagName1(node, tagName, arr = []) {
+    if (!node || typeof node !== "object") {
+      return arr;
     }
 
-}
-// getElementsByTagName(document.body, 'a'); 
+    if (node.tagName ) {
+      arr.push(node);
+    }
+  
+    if (node.children && typeof node.children === "object") {
+      for (let i = 0; i < node.children.length; i++) {
+        getElementsByTagName1(node.children[i], tagName, arr);
+      }
+    }
+  
+    return arr;
+  }
+  
