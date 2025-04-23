@@ -3,5 +3,6 @@
 async function fetchData(url: string): Promise<string> {
     return "data";
   }
+  type Awaitedme<T>=T extends Promise<infer A>?Awaitedme<A>:T;
   type FetchDataReturnType = AsyncReturnType<typeof fetchData>;  // string
-  type AsyncReturnType<T>=T extends (...args:any[])=>infer A?Awaited<A>:never;
+  type AsyncReturnType<T>=T extends (...args:any[])=>infer A?Awaitedme<A>:never;
